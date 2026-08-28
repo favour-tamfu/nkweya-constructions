@@ -30,9 +30,13 @@ function gzipped(file: string): number {
   return gzipSync(readFileSync(file)).length;
 }
 
+/* Asset URLs carry the deployment prefix; the files in out/ do not. */
+const BASE_PATH = (process.env.NEXT_PUBLIC_BASE_PATH ?? '').replace(/\/$/, '');
+
 function assetPath(href: string): string | null {
-  const clean = href.split('?')[0] ?? '';
+  let clean = href.split('?')[0] ?? '';
   if (!clean.startsWith('/')) return null;
+  if (BASE_PATH && clean.startsWith(`${BASE_PATH}/`)) clean = clean.slice(BASE_PATH.length);
   const file = join(OUT, clean);
   return existsSync(file) && statSync(file).isFile() ? file : null;
 }
@@ -74,7 +78,7 @@ function measure(relative: string): Report | null {
     else scripts.add(src);
   }
   // Chunk names also appear in the RSC bootstrap payload rather than as tags.
-  for (const match of html.matchAll(/"(\/_next\/static\/chunks\/[^"]+\.js)"/g)) {
+  for (const match of html.matchAll(/"([^"]*\/_next\/static\/chunks\/[^"]+\.js)"/g)) {
     if (match[1] && !legacyOnly.has(match[1])) scripts.add(match[1]);
   }
 
@@ -106,7 +110,7 @@ function measure(relative: string): Report | null {
 
   // Fonts are self-hosted and preloaded, so they are part of the first visit.
   let fontBytes = 0;
-  for (const match of html.matchAll(/href="(\/_next\/static\/media\/[^"]+\.woff2)"/g)) {
+  for (const match of html.matchAll(/href="([^"]*\/_next\/static\/media\/[^"]+\.woff2)"/g)) {
     const file = match[1] ? assetPath(match[1]) : null;
     if (file) fontBytes += statSync(file).size; // woff2 is already compressed
   }

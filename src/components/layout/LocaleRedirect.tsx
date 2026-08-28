@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { asset } from '@/lib/base-path';
 
 export const LOCALE_STORAGE_KEY = 'nkweya-locale';
 
@@ -27,7 +28,8 @@ export function LocaleRedirect() {
     } catch {
       /* private mode — the default is fine */
     }
-    window.location.replace(`/${locale}/`);
+    // A raw location assignment, so it needs the prefix applied by hand.
+    window.location.replace(asset(`/${locale}/`));
 
     // If the redirect has not taken effect, stop hiding the choice.
     const timer = window.setTimeout(() => setStalled(true), 1200);

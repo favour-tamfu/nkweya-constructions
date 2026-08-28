@@ -13,6 +13,19 @@ import { join, resolve } from 'node:path';
 
 const OUT = resolve(process.cwd(), 'out');
 
+/*
+ * Under GitHub Pages the site is served from `/<repo>/`, so every href in the
+ * built HTML carries that prefix while the files on disk do not. Strip it
+ * before resolving, or every link looks broken.
+ */
+const BASE_PATH = (process.env.NEXT_PUBLIC_BASE_PATH ?? '').replace(/\/$/, '');
+
+function stripBasePath(pathname: string): string {
+  if (!BASE_PATH) return pathname;
+  if (pathname === BASE_PATH) return '/';
+  return pathname.startsWith(`${BASE_PATH}/`) ? pathname.slice(BASE_PATH.length) : pathname;
+}
+
 function walk(dir: string): string[] {
   return readdirSync(dir).flatMap((name) => {
     const full = join(dir, name);
@@ -22,7 +35,7 @@ function walk(dir: string): string[] {
 
 /** Does this path exist as a file, or as a directory with an index.html? */
 function resolves(pathname: string): boolean {
-  const clean = pathname.split('#')[0]?.split('?')[0] ?? '';
+  const clean = stripBasePath(pathname.split('#')[0]?.split('?')[0] ?? '');
   if (clean === '' || clean === '/') return existsSync(join(OUT, 'index.html'));
 
   const target = join(OUT, clean);

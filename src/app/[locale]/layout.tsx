@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import { bitter, franklin } from '@/lib/fonts';
 import { assertLocale } from '@/lib/locale';
 import { buildMetadata, organisationSchema } from '@/lib/seo';
+import { asset } from '@/lib/base-path';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -44,11 +45,12 @@ export async function generateMetadata({
     ),
     applicationName: t('siteName'),
     icons: {
+      // Metadata icon URLs are emitted verbatim; basePath is not applied.
       icon: [
-        { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-        { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+        { url: asset('/icon-192.png'), sizes: '192x192', type: 'image/png' },
+        { url: asset('/icon-512.png'), sizes: '512x512', type: 'image/png' },
       ],
-      apple: '/apple-touch-icon.png',
+      apple: asset('/apple-touch-icon.png'),
     },
     formatDetection: { telephone: true },
     robots: { index: true, follow: true },

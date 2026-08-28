@@ -1,0 +1,75 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish rather than cancelling it half-published.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  # The site is served from https://favour-tamfu.github.io/nkweya-constructions/.
+  # `basePath` needs the path alone; canonical URLs, hreflang alternates, the
+  # sitemap and the social cards need the full origin.
+  NEXT_PUBLIC_BASE_PATH: /nkweya-constructions
+  NEXT_PUBLIC_SITE_URL: https://favour-tamfu.github.io/nkweya-constructions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm test
+
+      # `prebuild` regenerates every image derivative from assets/source, and
+      # `postbuild` renames the emitted directories to the translated pathnames.
+      - name: Build
+        run: npm run build
+
+      - name: Internal links resolve
+        run: npm run check:links
+
+      - name: Accessibility
+        run: npm run check:a11y
+
+      - name: Performance budget
+        run: npm run check:budget
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

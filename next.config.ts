@@ -6,6 +6,15 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
+/*
+ * GitHub Pages serves a project site from `/<repo>/`. `basePath` makes Next
+ * emit that prefix on links, the router and `/_next/*` assets; raw asset
+ * strings are prefixed by `src/lib/base-path.ts`, which reads the same value.
+ *
+ * Empty for a root deployment (custom domain or user site) and in development.
+ */
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 const nextConfig: NextConfig = {
   /*
    * Static export for the real build only.
@@ -17,6 +26,7 @@ const nextConfig: NextConfig = {
    * `scripts/localize-routes.ts` renames the emitted directories after build.
    */
   ...(isProduction ? { output: 'export' as const } : {}),
+  ...(basePath ? { basePath, assetPrefix: basePath } : {}),
   outputFileTracingRoot: path.join(__dirname),
   images: { unoptimized: true },
   /*

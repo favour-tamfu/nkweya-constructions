@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import { cn } from '@/lib/cn';
 import videoManifest from '@/generated/video-manifest.json';
+import { asset } from '@/lib/base-path';
 
 interface VideoEntry {
   slug: string;
@@ -14,7 +15,18 @@ interface VideoEntry {
   bytes: number;
 }
 
-const videos = videoManifest as Record<string, VideoEntry>;
+const raw = videoManifest as Record<string, VideoEntry>;
+
+/**
+ * `src` and `poster` are used raw on <video> and <img>, which Next does not
+ * rewrite for `basePath` — prefix them once, here.
+ */
+const videos: Record<string, VideoEntry> = Object.fromEntries(
+  Object.entries(raw).map(([slug, entry]) => [
+    slug,
+    { ...entry, src: asset(entry.src), poster: asset(entry.poster) },
+  ]),
+);
 
 export function hasVideo(slug: string) {
   return slug in videos;
