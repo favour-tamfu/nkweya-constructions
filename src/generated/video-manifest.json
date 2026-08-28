@@ -1,0 +1,38 @@
+{
+  "concrete-slab-pour-in-progress": {
+    "slug": "concrete-slab-pour-in-progress",
+    "src": "/video/concrete-slab-pour-in-progress.mp4",
+    "poster": "/video/concrete-slab-pour-in-progress-poster.jpg",
+    "posterBlur": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAAAwBgCdASoUACQAPxmItlWsqaSjKrgIAZAjCUAYoWhYbWId3oN4cH+4LVHSwkkkR0i5tYlV730i/rmAAP7tPSnK2SP1sCBCdAzYSkEmMYLJd0HJ6mZGGSgZHSqH/XnC8Fe5NU9HObDujsMQ4TRYHP+9dslkpPXAtLvFZJblBy/F47CENh2yYoEOU4UGrEAQOrIY3htcXV6SRQ+zULPNoWZtuDPfN8t4VX0NAK25oyHohh1BNuJQ45UskmHqYQMDreulwAAA",
+    "width": 480,
+    "height": 856,
+    "bytes": 2091839
+  },
+  "multi-storey-structure-under-construction": {
+    "slug": "multi-storey-structure-under-construction",
+    "src": "/video/multi-storey-structure-under-construction.mp4",
+    "poster": "/video/multi-storey-structure-under-construction-poster.jpg",
+    "posterBlur": "data:image/webp;base64,UklGRuQAAABXRUJQVlA4INgAAABQBgCdASoUACQAPxl+sFKsqCQiqrgN+ZAjCWUAyn2vkgOMX5OcWq1mT9Oh5QRx4yosPu7PmHbRK5o/AAD+78NlkBheAnidrS2fxpWSdZtxV32V7gBWi87v1ukWPfQ6fgnyDIBQgZ1Ww067ab1ObkjjtMDvJuhA7yy+bGfC9JALISWAN8URLn+v2uPJCG90NTrLPKvzKy4jsabSYhi3wZEQt6+ivwSx2fcOVQ5PoMAJrTkk2kZriV1AIP9BgGtV2AKlRgYPMGIBrEMJvBkrm3KplUduAOJwAAA=",
+    "width": 480,
+    "height": 856,
+    "bytes": 2274115
+  },
+  "slab-reinforcement-before-pour": {
+    "slug": "slab-reinforcement-before-pour",
+    "src": "/video/slab-reinforcement-before-pour.mp4",
+    "poster": "/video/slab-reinforcement-before-pour-poster.jpg",
+    "posterBlur": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAABwBgCdASoUACQAPxmCuFYsqCUjqrgIAZAjCWUAxcsyuaUWYSRcYHjxq94fQ3E/uMW/ElTJZd8aidURzLAA9ySusaOc1UIjDS098I1Xa/F7h+4E3soVk2jg0geUovS28rFidRGnhiARxQBXqNoAdqgTWV2ditjc5lGmJZj+KbvNW9GJCMvkFpvmP2tOc8yZu8iNU+LxKDyQ5iX8qLjlcdMPQ643fYxYNzfPYLJavDyCM3Du3eie87Ik+w5omxbVcEjH9RwD2g2ALbEAAAA=",
+    "width": 480,
+    "height": 856,
+    "bytes": 3167985
+  },
+  "concrete-cube-compression-test": {
+    "slug": "concrete-cube-compression-test",
+    "src": "/video/concrete-cube-compression-test.mp4",
+    "poster": "/video/concrete-cube-compression-test-poster.jpg",
+    "posterBlur": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAABwBQCdASoUACQAPxmEvVasqCajpWmZkCMJYwC+SCMNHFMGj4bziVkNq/5tltj71JvxXj5AAP7gyTverp3Ncw2i6Eon3HfuUtNiN28367zCAqiIPCv85bG16KqajAhRS1WKsYtzAZzMSWQLUgM60c13u7RpBXfs99lDmqvuJGUwPY0fjpUqWAzOptRG+4NNMiPnllAugCamh8gA",
+    "width": 480,
+    "height": 856,
+    "bytes": 5755845
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "meta": {
+    "siteName": "Nkweya & Sons Constructions",
+    "tagline": "A name you can build on.",
+    "heroSubline": "Buildings raised across five cities, one standard of work.",
+    "homeTitle": "Nkweya & Sons Constructions — civil engineering contractor, Cameroon",
+    "homeDescription": "Civil engineering contractor working across Buea, Limbe, Douala, Yaoundé and Bamenda. Commercial and residential construction, structural supervision, renovation, geotechnical studies and boreholes.",
+    "pages": {
+      "services": {
+        "title": "Construction services in Cameroon — Nkweya & Sons",
+        "description": "Commercial and residential construction, structural supervision, renovation and repair, geotechnical studies and boreholes. Each service states its scope and its exclusions."
+      },
+      "projects": {
+        "title": "Our work — Nkweya & Sons Constructions",
+        "description": "First Trust Bank and the CCC Building in Limbe, and footage from live sites: slab pours, reinforcement inspection and concrete testing."
+      },
+      "designs": {
+        "title": "Design visualisations — Nkweya & Sons Constructions",
+        "description": "Architectural visualisations of residential and apartment schemes, from a two-storey duplex to a six-storey apartment block."
+      },
+      "process": {
+        "title": "How a build runs, stage by stage — Nkweya & Sons",
+        "description": "Eleven stages from first contact to handover, setting out what happens at each and what the client provides."
+      },
+      "about": {
+        "title": "About Nkweya & Sons Constructions — Nkweya Francis, engineer",
+        "description": "A family firm led by Nkweya Francis: a research Master's in Civil Engineering, DIPET II certification and over 25 years in the trade, across five Cameroonian cities."
+      },
+      "contact": {
+        "title": "Contact Nkweya & Sons Constructions — Cameroon",
+        "description": "Three phone numbers, WhatsApp and email. Buea, Limbe, Douala, Yaoundé and Bamenda."
+      },
+      "cities": {
+        "titleTemplate": "Building in {city}, {region} — Nkweya & Sons Constructions",
+        "descriptionTemplate": "Construction, structural supervision and geotechnical work in {city}, with the local conditions that shape a build there."
+      },
+      "privacy": {
+        "title": "Privacy — Nkweya & Sons Constructions",
+        "description": "What this website collects, what it does not, and who to contact about it."
+      },
+      "terms": {
+        "title": "Terms — Nkweya & Sons Constructions",
+        "description": "The terms on which this website is published."
+      }
+    }
+  },
+  "nav": {
+    "services": "Services",
+    "projects": "Our work",
+    "designs": "Designs",
+    "process": "Process",
+    "about": "About",
+    "contact": "Contact",
+    "cities": "Where we build",
+    "menu": "Menu",
+    "close": "Close",
+    "language": "Language",
+    "skipToContent": "Skip to content",
+    "openMenu": "Open the menu",
+    "closeMenu": "Close the menu",
+    "breadcrumb": "Breadcrumb",
+    "home": "Home"
+  },
+  "cta": {
+    "contact": "Contact us",
+    "talk": "Talk to us about your project",
+    "whatsapp": "WhatsApp us",
+    "whatsappShort": "WhatsApp",
+    "call": "Call +237 656 766 513",
+    "callShort": "Call",
+    "contactShort": "Contact",
+    "services": "See our services",
+    "projects": "See our work",
+    "designs": "See the design visualisations",
+    "process": "See how a build runs",
+    "engineer": "Meet the engineer",
+    "readMore": "Read more",
+    "email": "Email us"
+  },
+  "trust": {
+    "years": "25+ years",
+    "yearsNote": "in civil engineering",
+    "cities": "5 cities",
+    "citiesNote": "across four regions",
+    "credentials": "MSc + DIPET II",
+    "credentialsNote": "Civil Engineering (research)",
+    "services": "5 services",
+    "servicesNote": "foundation to handover"
+  },
+  "home": {
+    "eyebrow": "Civil engineering · Cameroon",
+    "heroScroll": "What we do",
+    "audienceEyebrow": "Who we build for",
+    "audienceCommercial": "Commercial & development",
+    "audienceResidential": "Building a home",
+    "audienceCommercialBody": "Office buildings, bank branches and retail structures, delivered to specification with engineering supervision throughout. Our completed work includes a bank branch in Limbe, built to a client's own technical review.",
+    "audienceResidentialBody": "A family firm with its name on the building. One engineer accountable from the first site visit to the day the keys change hands, and a written report at every stage in between.",
+    "servicesEyebrow": "What we do",
+    "servicesTitle": "Five services, from the ground up",
+    "servicesBody": "Each one states what it covers and where its boundaries lie, so scope is settled in the first conversation rather than argued over at finishing stage.",
+    "designsEyebrow": "Design visualisations",
+    "designsTitle": "Schemes we have drawn",
+    "designsBody": "Four residential schemes, from a two-storey duplex to a six-storey apartment block. These are architectural visualisations — drawings of proposed buildings, labelled as such throughout.",
+    "workEyebrow": "On site",
+    "workTitle": "Work in progress",
+    "workBody": "Footage from live sites: a slab being poured, a structure in elevation, reinforcement inspected before concrete covers it, and a concrete cube tested to confirm the mix reached its grade.",
+    "projectsEyebrow": "Completed buildings",
+    "projectsTitle": "First Trust Bank and the CCC Building",
+    "projectsBody": "Both in Limbe, on the coast, where salt exposure governs reinforcement cover and the specification of every external fixing.",
+    "engineerEyebrow": "The engineer",
+    "engineerTitle": "Nkweya Francis",
+    "engineerBody": "A research Master's in Civil Engineering, DIPET II certification, and more than twenty-five years of practice across five cities in four regions of Cameroon — anglophone and francophone.",
+    "processEyebrow": "The process",
+    "processTitle": "From the first call to the keys",
+    "processBody": "Eleven stages, each setting out what happens and what you provide, so you know where a build stands at any point.",
+    "citiesEyebrow": "Where we build",
+    "citiesTitle": "Five cities, four regions",
+    "citiesBody": "Buea, Limbe, Douala, Yaoundé and Bamenda. Each builds differently, and each page sets out the conditions that shape a project there.",
+    "finalTitle": "Tell us what you want to build",
+    "finalBody": "Start with a message or a call, and we will arrange a site visit."
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Our services",
+    "intro": "Five services, covering a project from the soil beneath it through to the day it is handed over. Structural supervision and geotechnical work are offered alongside construction, which means the ground can be tested and the structure checked by the same engineer who is accountable for the build.",
+    "includes": "What is included",
+    "excludes": "What is not included",
+    "excludesNote": "Stated up front so that scope is clear before work begins.",
+    "faqs": "Questions",
+    "relatedProjects": "Related buildings",
+    "otherServices": "Our other services",
+    "detailCta": "Ask about this service"
+  },
+  "projects": {
+    "eyebrow": "Our work",
+    "title": "Our work",
+    "intro": "Completed buildings, and footage from sites while the work was under way.",
+    "completedTitle": "Completed buildings",
+    "sector": "Sector",
+    "city": "City",
+    "region": "Region",
+    "scope": "Scope of works",
+    "summary": "About this building",
+    "filterAll": "All",
+    "filterType": "Type",
+    "filterCity": "City",
+    "noResults": "No buildings match that filter.",
+    "photographyNote": "Photography of both buildings is being arranged. Until it is complete, these pages set out the work rather than illustrate it.",
+    "types": {
+      "commercial": "Commercial",
+      "residential": "Residential",
+      "renovation": "Renovation",
+      "geotechnical": "Geotechnical"
+    },
+    "sectors": {
+      "banking": "Banking",
+      "retail": "Retail",
+      "office": "Office",
+      "institutional": "Institutional"
+    }
+  },
+  "siteWork": {
+    "eyebrow": "On site",
+    "title": "Work in progress",
+    "intro": "Footage taken on live sites. A slab being poured, a structure in elevation, reinforcement laid out before concrete covers it, and a concrete cube tested on a compression machine.",
+    "playVideo": "Play the clip",
+    "videoSize": "{size} MB",
+    "videoNote": "Nothing downloads until you press play.",
+    "relatedService": "Part of"
+  },
+  "designs": {
+    "eyebrow": "Design visualisations",
+    "title": "Designs",
+    "intro": "Architectural visualisations of residential schemes — computer drawings of proposed buildings rather than photographs of completed ones. Each is labelled accordingly, and the notes set out what is fixed at design stage and what follows from the plot.",
+    "buildingType": "Building type",
+    "storeys": "Storeys",
+    "viewLarger": "View larger",
+    "closeViewer": "Close",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "imageCounter": "{current} of {total}",
+    "note": "About this design",
+    "ctaTitle": "Interested in a scheme like this?",
+    "ctaBody": "A visualisation is where a build starts. Send us the one that interests you and we will talk about the plot it has to sit on."
+  },
+  "process": {
+    "eyebrow": "The process",
+    "title": "How a build runs",
+    "intro": "Eleven stages between a first conversation and a set of keys. Each sets out what happens and what you provide. Programme and commercial terms are agreed per project in the written contract at stage six, because they follow from the plot, the design and the season.",
+    "stage": "Stage",
+    "what": "What happens",
+    "clientSupplies": "What you provide",
+    "soilHighlight": "We carry out our own soil investigations, so this stage runs within the same programme rather than waiting on a third party.",
+    "ctaTitle": "Start at stage one",
+    "ctaBody": "A message or a call. Stage two is a site visit."
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "A family firm with its name on the building",
+    "lede": "Nkweya & Sons Constructions is a civil engineering contractor working across five cities in four regions of Cameroon, anglophone and francophone, led by an engineer with a research Master's degree and more than twenty-five years in the trade.",
+    "positioningTitle": "The name is the guarantee",
+    "positioningBody": "A family firm puts its own name above the door. Every building carries that name, and so does every commitment made about it. It is the reason the same engineer who tests the ground also signs off the structure and attends the handover.",
+    "engineerTitle": "Nkweya Francis",
+    "engineerRole": "Founding engineer",
+    "engineerBio": "Nkweya Francis has practised civil engineering for more than twenty-five years, across Buea, Limbe, Douala, Yaoundé and Bamenda — five cities spanning four regions and both working languages of the country. His completed work includes First Trust Bank and the CCC Building, both in Limbe.",
+    "engineerBioTwo": "He holds a Master's degree in Civil Engineering by research and is DIPET II certified. He is on site for the stages that decide a building: the soil investigation, the reinforcement inspection before each pour, and the joint inspection at handover.",
+    "qualificationsTitle": "Qualifications",
+    "portraitPending": "Portrait to follow",
+    "capabilityTitle": "How we work",
+    "capabilityBody": "Soil investigation, design, construction and supervision are carried out under one accountable engineer. That keeps the sequence intact: the foundation follows the soil report, the structure follows the drawings, and each is checked before the next begins.",
+    "coverageTitle": "Where we work",
+    "coverageBody": "Five cities across four regions, in both anglophone and francophone Cameroon.",
+    "servicesTitle": "What we offer",
+    "ctaTitle": "Talk to the engineer directly",
+    "ctaBody": "Not a call centre, and not a sales team."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Get in touch",
+    "intro": "WhatsApp is usually fastest. All three numbers reach the company; the first is the one every button on this site opens.",
+    "phones": "Phone",
+    "primaryLabel": "Primary",
+    "whatsappTitle": "WhatsApp",
+    "whatsappBody": "The quickest way to reach us, and the one most clients use.",
+    "emailTitle": "Email",
+    "emailBody": "For drawings, documents and anything that needs a written record.",
+    "citiesTitle": "Cities served",
+    "copied": "Copied",
+    "copyNumber": "Copy this number",
+    "nextTitle": "What happens next",
+    "nextBody": "We establish what you want to build and where, then arrange a site visit. Everything after that follows the eleven stages set out on the process page."
+  },
+  "cities": {
+    "eyebrow": "Where we build",
+    "titleTemplate": "Building in {city}",
+    "regionLabel": "Region",
+    "languageLabel": "Working language",
+    "intro": "Five cities across four regions. Each builds differently.",
+    "projectsHere": "Buildings here",
+    "noProjectsHere": "Our completed buildings are documented on the work page.",
+    "servicesHere": "Services offered here",
+    "conditionsTitle": "Building conditions here",
+    "otherCities": "The other cities",
+    "ctaTitle": "Building in {city}?",
+    "ctaBody": "Send us a message and we will arrange a site visit."
+  },
+  "legal": {
+    "privacyTitle": "Privacy",
+    "privacyBody": "This website sets no cookies, runs no advertising trackers, and does not profile visitors. Your language choice is stored in your own browser and never leaves it. If you contact us, what you send reaches the company directly so that somebody can reply to it, and is used for nothing else.",
+    "privacyContact": "To ask what is held about you, or to have it deleted, use any of the contact routes on this site.",
+    "termsTitle": "Terms",
+    "termsBody": "The information on this website is published in good faith and kept current. A quotation is a written document issued after a site visit, and only that document binds.",
+    "termsRenders": "Images labelled as design visualisations are computer-generated drawings of proposed schemes. They are not photographs of completed buildings and should not be read as a record of work carried out."
+  },
+  "footer": {
+    "cities": "Buea · Limbe · Douala · Yaoundé · Bamenda",
+    "explore": "Explore",
+    "company": "Company",
+    "reach": "Reach us",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "tagline": "Civil engineering contractor · Cameroon",
+    "rights": "All rights reserved."
+  },
+  "render": {
+    "label": "Design visualisation",
+    "explain": "A computer visualisation of a proposed design, not a photograph of a completed building."
+  },
+  "whatsapp": {
+    "default": "Hello Nkweya & Sons, I would like to discuss a project.",
+    "city": "Hello Nkweya & Sons, I would like to discuss a project in {city}.",
+    "service": "Hello Nkweya & Sons, I would like to ask about {service}.",
+    "design": "Hello Nkweya & Sons, I am interested in the {design} design.",
+    "project": "Hello Nkweya & Sons, I would like to ask about {project}."
+  },
+  "notFound": {
+    "title": "That page does not exist",
+    "body": "The link may be out of date, or the page may have moved.",
+    "home": "Go to the homepage"
+  }
+}

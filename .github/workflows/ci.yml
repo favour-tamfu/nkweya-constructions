@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm test
+
+      # Warns in CI; fails only when SITE_STAGE=launch. See scripts/check-placeholders.ts.
+      - name: Placeholder check
+        run: npm run check:placeholders
+
+      # `prebuild` regenerates images, `postbuild` renames routes to their
+      # translated pathnames — without which every French URL 404s.
+      - name: Build
+        run: npm run build
+
+      # Catches the translated-pathname failure directly, in case postbuild
+      # ever stops running.
+      - name: Internal links resolve
+        run: npm run check:links
+
+      - name: Accessibility (static rules from §13.2)
+        run: npm run check:a11y
+
+      - name: Performance budget
+        run: npm run check:budget
+
+  # Separate job so the launch gate is visible without blocking day-to-day work.
+  launch-readiness:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Facts still outstanding before launch
+        env:
+          SITE_STAGE: launch
+        run: npm run check:placeholders

@@ -1,0 +1,134 @@
+{
+  "five-storey-apartment-building-front-elevation": {
+    "width": 448,
+    "height": 534,
+    "blur": "data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAAAwBQCdASoUABgAPxmAs1Usp6QjKAqpkCMJYwDImywAsTQ0N1FPkxWzK2Jr50hASFXHIAD+X0X7kTtelfKNDlDyFSaXap+jCmvhrPZjruXZxt0wc5RxSq/AnKBTa5Z7K9pZhqhfLkCyTgeoE8u0X7DyNgeBW2xT+B1euw4hM97mDQY3SpQSGqR+adEkUbVUllsbQnqDnM3q125JerPoMXeOfWDcr6zo4QQ7STRXXe932SGKbEHJffw+bZZMj9L5HLHBMjIKaQAAAA==",
+    "fallback": "/media/five-storey-apartment-building-front-elevation-448.jpg",
+    "sources": {
+      "avif": "/media/five-storey-apartment-building-front-elevation-400.avif 400w, /media/five-storey-apartment-building-front-elevation-448.avif 448w",
+      "webp": "/media/five-storey-apartment-building-front-elevation-400.webp 400w, /media/five-storey-apartment-building-front-elevation-448.webp 448w",
+      "jpeg": "/media/five-storey-apartment-building-front-elevation-400.jpg 400w, /media/five-storey-apartment-building-front-elevation-448.jpg 448w"
+    }
+  },
+  "residential-duplex-block-driveway-view": {
+    "width": 960,
+    "height": 540,
+    "blur": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQBACdASoUAAsAPxl2slEspySisAgBkCMJagCdMoADgfLkWhR0WeARt4RgAP3vpLaw98WCfT4QVgFPntnL2blWaAxea6e1bYQ43NeTbZYEco6AgSNk/QiP6jJt/VlF9FSkYc+kJbFi4h7vqtsCV6RT2+AAAA==",
+    "fallback": "/media/residential-duplex-block-driveway-view-960.jpg",
+    "sources": {
+      "avif": "/media/residential-duplex-block-driveway-view-400.avif 400w, /media/residential-duplex-block-driveway-view-800.avif 800w, /media/residential-duplex-block-driveway-view-960.avif 960w",
+      "webp": "/media/residential-duplex-block-driveway-view-400.webp 400w, /media/residential-duplex-block-driveway-view-800.webp 800w, /media/residential-duplex-block-driveway-view-960.webp 960w",
+      "jpeg": "/media/residential-duplex-block-driveway-view-400.jpg 400w, /media/residential-duplex-block-driveway-view-800.jpg 800w, /media/residential-duplex-block-driveway-view-960.jpg 960w"
+    }
+  },
+  "residential-duplex-block-front-elevation": {
+    "width": 960,
+    "height": 540,
+    "blur": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoUAAsAPxl0sVCspqSisAgBkCMJZgCdEf/gIgGInoz2QKBwAP3RASl0OctyC3GAY5O3maQYI72KMtkqlCJejFgpc957AoCOHukZf9MvW5TXOuFXGQ0tFNkC0f1p1WBMBKwDEAWaWXltIybhAAA=",
+    "fallback": "/media/residential-duplex-block-front-elevation-960.jpg",
+    "sources": {
+      "avif": "/media/residential-duplex-block-front-elevation-400.avif 400w, /media/residential-duplex-block-front-elevation-800.avif 800w, /media/residential-duplex-block-front-elevation-960.avif 960w",
+      "webp": "/media/residential-duplex-block-front-elevation-400.webp 400w, /media/residential-duplex-block-front-elevation-800.webp 800w, /media/residential-duplex-block-front-elevation-960.webp 960w",
+      "jpeg": "/media/residential-duplex-block-front-elevation-400.jpg 400w, /media/residential-duplex-block-front-elevation-800.jpg 800w, /media/residential-duplex-block-front-elevation-960.jpg 960w"
+    }
+  },
+  "residential-duplex-block-street-view": {
+    "width": 960,
+    "height": 540,
+    "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwBACdASoUAAsAPxl2slEspySisAgBkCMJZACdMoGv/gNW6G6eUtTNsZAA/c2+VZzjLrc3XWzDrroGSXcZJkl+5I6EwieaFTmN352fcB7H6HFKYBynUng3mKQBw6yJCBoAaXCFIzAfGDuJPAA=",
+    "fallback": "/media/residential-duplex-block-street-view-960.jpg",
+    "sources": {
+      "avif": "/media/residential-duplex-block-street-view-400.avif 400w, /media/residential-duplex-block-street-view-800.avif 800w, /media/residential-duplex-block-street-view-960.avif 960w",
+      "webp": "/media/residential-duplex-block-street-view-400.webp 400w, /media/residential-duplex-block-street-view-800.webp 800w, /media/residential-duplex-block-street-view-960.webp 960w",
+      "jpeg": "/media/residential-duplex-block-street-view-400.jpg 400w, /media/residential-duplex-block-street-view-800.jpg 800w, /media/residential-duplex-block-street-view-960.jpg 960w"
+    }
+  },
+  "site-concrete-cube-compression-test": {
+    "width": 900,
+    "height": 1604,
+    "blur": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACwBACdASoUACQAPxmCuVWsqCWjJWsxkCMJYwDD6BobveRHw9eXBXkzA1eACwAAAP7gyU+ufV9DaTHn5rHumLOmOwhNWvsddpkdTPQwF1XavFLuilPcaTBDSTIJuD5J5VECDtjNZcYlrOE5XmRQQATafayFsL/0L5LXyBNdsz0Pl7QLzEQmU5cGYJS6yfPT6RRMkoYdtyTwOgVl/OzgAthgAAA=",
+    "fallback": "/media/site-concrete-cube-compression-test-900.jpg",
+    "sources": {
+      "avif": "/media/site-concrete-cube-compression-test-400.avif 400w, /media/site-concrete-cube-compression-test-800.avif 800w, /media/site-concrete-cube-compression-test-900.avif 900w",
+      "webp": "/media/site-concrete-cube-compression-test-400.webp 400w, /media/site-concrete-cube-compression-test-800.webp 800w, /media/site-concrete-cube-compression-test-900.webp 900w",
+      "jpeg": "/media/site-concrete-cube-compression-test-400.jpg 400w, /media/site-concrete-cube-compression-test-800.jpg 800w, /media/site-concrete-cube-compression-test-900.jpg 900w"
+    }
+  },
+  "site-concrete-slab-pour-crew": {
+    "width": 900,
+    "height": 1604,
+    "blur": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAAAwBQCdASoUACQAPxl+sFKsqKQiqqwBkCMJQBjmAsvPK5Brc6JXmXkoZ2vHHn52csrdQAD+6nbOtXWXxeD93mCG0PUnvRjBZLug5PUzIwyUDI6VDpy7kRLU089JNz2iDQC5Lw7jq5G5F16B8wHlvQ0jmAJ7iXKzbKjLmO99p1E+8f2MyJIYCfQ6F+nWr0cVpHnvwh3kN5Cvt6R3JdVPfjDldTa5/fA3VUc+vyhA5PmoNU6Y3o6ZgyRaeSQxnjhagnJbhQAA",
+    "fallback": "/media/site-concrete-slab-pour-crew-900.jpg",
+    "sources": {
+      "avif": "/media/site-concrete-slab-pour-crew-400.avif 400w, /media/site-concrete-slab-pour-crew-800.avif 800w, /media/site-concrete-slab-pour-crew-900.avif 900w",
+      "webp": "/media/site-concrete-slab-pour-crew-400.webp 400w, /media/site-concrete-slab-pour-crew-800.webp 800w, /media/site-concrete-slab-pour-crew-900.webp 900w",
+      "jpeg": "/media/site-concrete-slab-pour-crew-400.jpg 400w, /media/site-concrete-slab-pour-crew-800.jpg 800w, /media/site-concrete-slab-pour-crew-900.jpg 900w"
+    }
+  },
+  "site-multi-storey-structure-scaffolding": {
+    "width": 900,
+    "height": 1604,
+    "blur": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4INAAAABwBgCdASoUACQAPxmAsFMsqCQiqrgN+ZAjCWUAyNWM7uXRHNSTDxi2IcTwYoix9jGPDwoKJ92Gear/KcAA/u/DX/+6AgwNBhddHuZS+1cQOVOCiyoKj3IMp1fK2UfRKGIJGJFyuk0+c7Tg5yXfdCNDdkiFk7DEXliwXGsiwVFA+q5TkXQ6i1bKZg+6ONUq203k55QXzzre42tztmPksekfKADvLrlT8qC5koxa0+wXLFtFFkWvsltJnThtOTXFoJQ4Jo2Lv6XK5sqha4MhgAAA",
+    "fallback": "/media/site-multi-storey-structure-scaffolding-900.jpg",
+    "sources": {
+      "avif": "/media/site-multi-storey-structure-scaffolding-400.avif 400w, /media/site-multi-storey-structure-scaffolding-800.avif 800w, /media/site-multi-storey-structure-scaffolding-900.avif 900w",
+      "webp": "/media/site-multi-storey-structure-scaffolding-400.webp 400w, /media/site-multi-storey-structure-scaffolding-800.webp 800w, /media/site-multi-storey-structure-scaffolding-900.webp 900w",
+      "jpeg": "/media/site-multi-storey-structure-scaffolding-400.jpg 400w, /media/site-multi-storey-structure-scaffolding-800.jpg 800w, /media/site-multi-storey-structure-scaffolding-900.jpg 900w"
+    }
+  },
+  "site-slab-reinforcement-mesh-before-pour": {
+    "width": 900,
+    "height": 1604,
+    "blur": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAADwBQCdASoUACQAPxmCt1YsqCUjqrgIAZAjCWUAxcsyuYhrv5OFPAKSgCcaA71WkzHSl/A9dROaQAD3HB1K0h+zCcGB1lhY/KR6L9m0IDNt7cuPiGKtJ+IgoqktKGtnykshsF5gAxeAEULJqKvgdvzuRXl4BAOcYjiQ16WoE/aL46gGKHHHOGdGuvZ0NTkeXesA0EkQwXfMFSD2TYN464d33fntPik/5saZxvqrlYh6hlyBmHwUXlQxsTGbi7Rx8NXEzaC4rD6+bAJPAAA=",
+    "fallback": "/media/site-slab-reinforcement-mesh-before-pour-900.jpg",
+    "sources": {
+      "avif": "/media/site-slab-reinforcement-mesh-before-pour-400.avif 400w, /media/site-slab-reinforcement-mesh-before-pour-800.avif 800w, /media/site-slab-reinforcement-mesh-before-pour-900.avif 900w",
+      "webp": "/media/site-slab-reinforcement-mesh-before-pour-400.webp 400w, /media/site-slab-reinforcement-mesh-before-pour-800.webp 800w, /media/site-slab-reinforcement-mesh-before-pour-900.webp 900w",
+      "jpeg": "/media/site-slab-reinforcement-mesh-before-pour-400.jpg 400w, /media/site-slab-reinforcement-mesh-before-pour-800.jpg 800w, /media/site-slab-reinforcement-mesh-before-pour-900.jpg 900w"
+    }
+  },
+  "six-storey-apartment-block-corner-view": {
+    "width": 398,
+    "height": 506,
+    "blur": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAABwBQCdASoUABoAPxl+tFKsqCUisBgIAZAjCWYAuwMsGG5ENePAAlRBtBXUgEBjZZkmAdAAAGGDUVOYHbmyJGbB+UiDqr48Ow2kLTtR4PZ9PO3IRAjpY4Sov5Gy3fNlXVcjEwUH8n03IEty20iRLwvKKjK7+66utYhabr29fZ2JJPcW+KMWItGCGN2mFN+E4APFXwrd2aItnalV2FjIXPBebPK1Jlc+wytRq2+/D7F9Sm/Hh2ttsgAA",
+    "fallback": "/media/six-storey-apartment-block-corner-view-398.jpg",
+    "sources": {
+      "avif": "/media/six-storey-apartment-block-corner-view-398.avif 398w",
+      "webp": "/media/six-storey-apartment-block-corner-view-398.webp 398w",
+      "jpeg": "/media/six-storey-apartment-block-corner-view-398.jpg 398w"
+    }
+  },
+  "six-storey-apartment-block-front-elevation": {
+    "width": 403,
+    "height": 274,
+    "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAA4APxl0slCspqSisAgBkCMJZgCdOUAAyQGr6MD6HwYEAPm8fTCeC/y0PeFNulRWpkt9QQoumEmgkpzSM8E8pVKmpFRb1dQk3rkbNqp/k1nMI6FE62YWn2HW+5FiG9AAAA==",
+    "fallback": "/media/six-storey-apartment-block-front-elevation-403.jpg",
+    "sources": {
+      "avif": "/media/six-storey-apartment-block-front-elevation-400.avif 400w, /media/six-storey-apartment-block-front-elevation-403.avif 403w",
+      "webp": "/media/six-storey-apartment-block-front-elevation-400.webp 400w, /media/six-storey-apartment-block-front-elevation-403.webp 403w",
+      "jpeg": "/media/six-storey-apartment-block-front-elevation-400.jpg 400w, /media/six-storey-apartment-block-front-elevation-403.jpg 403w"
+    }
+  },
+  "six-storey-apartment-block-three-quarter-view": {
+    "width": 403,
+    "height": 246,
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACwAwCdASoUAAwAPxl2slEspySisAgBkCMJZACdABLuEz3fRyN8AACHh+/o++0uY8PTrBFGTPgxGKwDkExnEkoe8Dk6aaqL0ozPxRVch/aOwaz9yN4ZhFEMUVGQubHdwAA=",
+    "fallback": "/media/six-storey-apartment-block-three-quarter-view-403.jpg",
+    "sources": {
+      "avif": "/media/six-storey-apartment-block-three-quarter-view-400.avif 400w, /media/six-storey-apartment-block-three-quarter-view-403.avif 403w",
+      "webp": "/media/six-storey-apartment-block-three-quarter-view-400.webp 400w, /media/six-storey-apartment-block-three-quarter-view-403.webp 403w",
+      "jpeg": "/media/six-storey-apartment-block-three-quarter-view-400.jpg 400w, /media/six-storey-apartment-block-three-quarter-view-403.jpg 403w"
+    }
+  },
+  "two-storey-residential-block-aerial-view": {
+    "width": 960,
+    "height": 540,
+    "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoUAAsAPxl0sVCspqSisAgBkCMJQBOgAzAsJ6f+3miabQAAyuAnJPZMlYmnGxTkB7nyb8zDl6OADrUXXR5tEwKDFk8dQCTJdOky66cAYCFmOPO4+oHZ47N96/mhWgVvvAA=",
+    "fallback": "/media/two-storey-residential-block-aerial-view-960.jpg",
+    "sources": {
+      "avif": "/media/two-storey-residential-block-aerial-view-400.avif 400w, /media/two-storey-residential-block-aerial-view-800.avif 800w, /media/two-storey-residential-block-aerial-view-960.avif 960w",
+      "webp": "/media/two-storey-residential-block-aerial-view-400.webp 400w, /media/two-storey-residential-block-aerial-view-800.webp 800w, /media/two-storey-residential-block-aerial-view-960.webp 960w",
+      "jpeg": "/media/two-storey-residential-block-aerial-view-400.jpg 400w, /media/two-storey-residential-block-aerial-view-800.jpg 800w, /media/two-storey-residential-block-aerial-view-960.jpg 960w"
+    }
+  }
+}

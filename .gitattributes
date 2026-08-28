@@ -1,0 +1,18 @@
+# Normalise line endings in the repository: LF in git, native in the working
+# tree. Without this, a Windows checkout stages CRLF and every file looks
+# modified on a Linux CI runner.
+* text=auto eol=lf
+
+# Binary assets must never be normalised.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.mp4 binary
+*.woff2 binary
+
+# Generated — collapse in diffs and exclude from language statistics.
+src/generated/*.json linguist-generated=true
+package-lock.json linguist-generated=true
