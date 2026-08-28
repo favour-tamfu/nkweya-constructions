@@ -1,5 +1,7 @@
 # Nkweya & Sons Constructions — website
 
+**Live:** https://favour-tamfu.github.io/nkweya-constructions/
+
 Bilingual (EN/FR) static site for a Cameroonian civil engineering contractor
 working across Buea, Limbe, Douala, Yaoundé and Bamenda.
 
@@ -146,5 +148,34 @@ npm run build:images    # responsive derivatives + manifest
 - A portrait of Nkweya Francis. The About page holds a framed slot for it.
 - Photographs of First Trust Bank and the CCC Building in Limbe.
 
-Set `NEXT_PUBLIC_SITE_URL` before the production build so canonicals, hreflang
-alternates and the sitemap point at the live domain, then deploy `out/`.
+## Deployment
+
+`.github/workflows/deploy.yml` publishes to GitHub Pages on every push to
+`main`. It runs the full gate — typecheck, lint, tests, build, links,
+accessibility, budget — and only uploads the artifact if all of it passes.
+
+Two environment variables drive the deployment:
+
+| | |
+|---|---|
+| `NEXT_PUBLIC_BASE_PATH` | `/nkweya-constructions` — the path the site is served under |
+| `NEXT_PUBLIC_SITE_URL` | `https://favour-tamfu.github.io/nkweya-constructions` — the full origin |
+
+### Why the base path needs care
+
+A GitHub Pages project site is served from `/<repo>/`. Next applies `basePath`
+to `<Link>`, the router and `/_next/*` by itself — but **not** to raw strings,
+and this site has several: `<img src>` and `<source srcSet>` built from the
+image manifest, `<video src>` and `poster` from the video manifest, the
+metadata icon URLs, and the `window.location.replace` in the root locale
+splash. `src/lib/base-path.ts` prefixes each of those from the same variable
+the config reads.
+
+`check-links` and `check-budget` strip the prefix before resolving a URL
+against `out/`, since the built files have no such directory.
+
+### Moving to a custom domain
+
+Set `NEXT_PUBLIC_BASE_PATH` to an empty string and `NEXT_PUBLIC_SITE_URL` to
+the new origin, then add the domain in the repository's Pages settings. Nothing
+else changes — an empty base path is the default everywhere.
