@@ -21,8 +21,16 @@ import sharp from 'sharp';
 const RAW = resolve(process.cwd(), '..', 'media');
 const OUT = resolve(process.cwd(), 'assets', 'source');
 
-/** Raw filename -> SEO slug. Landscape renders need no surgery. */
+/**
+ * Raw filename -> SEO slug. No surgery needed on these.
+ *
+ * The slug becomes the filename of every derivative, so it is what a search
+ * engine reads: the building, the city, and what the picture shows.
+ */
 const LANDSCAPE: Record<string, string> = {
+  // The one photograph of a completed building. Taken at the branch opening.
+  'WhatsApp Image 2026-08-31 at 11.51.11 AM.jpeg':
+    'ccc-building-limbe-completed-facade',
   'WhatsApp Image 2026-08-22 at 10.39.09 PM.jpeg':
     'residential-duplex-block-front-elevation',
   'WhatsApp Image 2026-08-22 at 10.39.09 PM (1).jpeg':

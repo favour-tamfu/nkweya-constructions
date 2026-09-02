@@ -3,16 +3,16 @@
     "siteName": "Nkweya & Sons Constructions",
     "tagline": "Un nom sur lequel bâtir.",
     "heroSubline": "Des bâtiments élevés dans cinq villes, une seule exigence de travail.",
-    "homeTitle": "Nkweya & Sons Constructions — entreprise de génie civil, Cameroun",
-    "homeDescription": "Entreprise de génie civil intervenant à Buea, Limbe, Douala, Yaoundé et Bamenda. Construction commerciale et résidentielle, supervision structurelle, rénovation, études géotechniques et forages.",
+    "homeTitle": "Nkweya & Sons Constructions — génie civil, Cameroun",
+    "homeDescription": "Entreprise de génie civil à Buea, Limbe, Douala, Yaoundé et Bamenda. Construction, supervision structurelle, rénovation et travaux géotechniques.",
     "pages": {
       "services": {
         "title": "Services de construction au Cameroun — Nkweya & Sons",
-        "description": "Construction commerciale et résidentielle, supervision structurelle, rénovation et réparation, études géotechniques et forages. Chaque service précise son périmètre et ses exclusions."
+        "description": "Construction commerciale et résidentielle, supervision structurelle, rénovation, études géotechniques et forages — périmètre et exclusions précisés."
       },
       "projects": {
         "title": "Nos réalisations — Nkweya & Sons Constructions",
-        "description": "First Trust Bank et le CCC Building à Limbe, ainsi que des séquences prises sur chantier : coulages de dalle, contrôle du ferraillage et essais sur béton."
+        "description": "Le CCC Building à Limbe, une agence First Trust Savings and Loan, et des séquences de chantier : coulages, ferraillage et essais sur béton."
       },
       "designs": {
         "title": "Vues d’architecte — Nkweya & Sons Constructions",
@@ -23,8 +23,8 @@
         "description": "Onze étapes, du premier contact à la réception, précisant ce qui se passe à chacune et ce que le client fournit."
       },
       "about": {
-        "title": "À propos de Nkweya & Sons Constructions — Nkweya Francis, ingénieur",
-        "description": "Une entreprise familiale dirigée par Nkweya Francis : Master de recherche en génie civil, certification DIPET II et plus de 25 ans de métier, dans cinq villes camerounaises."
+        "title": "À propos — Nkweya & Sons Constructions, Nkweya Francis",
+        "description": "Une entreprise familiale dirigée par Nkweya Francis : Master de recherche en génie civil, certification DIPET II, plus de 25 ans de métier."
       },
       "contact": {
         "title": "Contacter Nkweya & Sons Constructions — Cameroun",
@@ -36,11 +36,11 @@
       },
       "privacy": {
         "title": "Confidentialité — Nkweya & Sons Constructions",
-        "description": "Ce que ce site collecte, ce qu’il ne collecte pas, et à qui s’adresser."
+        "description": "Ce site ne dépose aucun cookie et n’utilise aucun traceur publicitaire. Ce qu’il collecte, ce qu’il ne collecte pas, et à qui s’adresser."
       },
       "terms": {
         "title": "Conditions — Nkweya & Sons Constructions",
-        "description": "Les conditions de publication de ce site."
+        "description": "Les conditions de publication de ce site, la portée d’un devis, et la distinction entre vue d’architecte et photographie d’ouvrage achevé."
       }
     }
   },
@@ -93,7 +93,7 @@
     "audienceEyebrow": "Pour qui nous bâtissons",
     "audienceCommercial": "Commercial & promotion",
     "audienceResidential": "Construire sa maison",
-    "audienceCommercialBody": "Immeubles de bureaux, agences bancaires et commerces, livrés conformément au cahier des charges, avec supervision d’ingénierie continue. Nos réalisations comprennent une agence bancaire à Limbe, construite sous la revue technique du client.",
+    "audienceCommercialBody": "Immeubles de bureaux, agences d’établissements financiers et commerces, livrés conformément au cahier des charges, avec supervision d’ingénierie continue. Nos réalisations comprennent le CCC Building, cinq niveaux, à Limbe.",
     "audienceResidentialBody": "Une entreprise familiale dont le nom figure sur l’ouvrage. Un seul ingénieur responsable, de la première visite de site au jour de la remise des clés, et un rapport écrit à chaque étape intermédiaire.",
     "servicesEyebrow": "Ce que nous faisons",
     "servicesTitle": "Cinq services, depuis le sol",
@@ -105,8 +105,8 @@
     "workTitle": "Travaux en cours",
     "workBody": "Des séquences prises sur des chantiers en activité : une dalle en cours de coulage, une structure en élévation, un ferraillage contrôlé avant que le béton ne le recouvre, et une éprouvette de béton testée pour confirmer sa classe.",
     "projectsEyebrow": "Ouvrages achevés",
-    "projectsTitle": "First Trust Bank et le CCC Building",
-    "projectsBody": "Tous deux à Limbe, sur la côte, où l’exposition au sel commande l’enrobage des armatures et la spécification de chaque fixation extérieure.",
+    "projectsTitle": "Le CCC Building, Limbe",
+    "projectsBody": "Cinq niveaux sur la côte, abritant l’agence de Limbe de Community Credit Company en pied d’immeuble. L’exposition au sel y commande l’enrobage des armatures et la spécification de chaque fixation extérieure.",
     "engineerEyebrow": "L’ingénieur",
     "engineerTitle": "Nkweya Francis",
     "engineerBody": "Un Master de recherche en génie civil, la certification DIPET II, et plus de vingt-cinq ans de pratique dans cinq villes réparties sur quatre régions du Cameroun — en zone anglophone comme francophone.",
@@ -145,7 +145,7 @@
     "filterType": "Type",
     "filterCity": "Ville",
     "noResults": "Aucun ouvrage ne correspond à ce filtre.",
-    "photographyNote": "La campagne photographique des deux ouvrages est en cours d’organisation. D’ici là, ces pages exposent les travaux plutôt qu’elles ne les illustrent.",
+    "photographyNote": "La campagne photographique de l’agence First Trust est en cours d’organisation. D’ici là, cette page expose les travaux plutôt qu’elle ne les illustre.",
     "types": {
       "commercial": "Commercial",
       "residential": "Résidentiel",

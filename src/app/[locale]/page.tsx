@@ -276,23 +276,35 @@ export default async function HomePage({
               <li key={project.slug} className="bg-slate-800">
                 <Link
                   href={{ pathname: '/projects/[slug]', params: { slug: project.slug } }}
-                  className="flex flex-col gap-3 p-6 no-underline transition-colors hover:bg-slate md:p-7"
+                  className="flex flex-col no-underline transition-colors hover:bg-slate"
                 >
-                  <div className="flex flex-wrap items-baseline justify-between gap-3">
-                    <h3 className="font-display text-[20px] font-bold text-white md:text-[22px]">
+                  {project.images[0] ? (
+                    <ResponsiveImage
+                      slug={project.images[0].src}
+                      alt={project.images[0].alt[locale]}
+                      sizes="(min-width: 1024px) 56vw, 92vw"
+                      aspect="16 / 9"
+                    />
+                  ) : null}
+                  <span className="flex flex-col gap-3 p-6 md:p-7">
+                  <span className="flex flex-wrap items-baseline justify-between gap-3">
+                    <span className="font-display text-[20px] font-bold text-white md:text-[22px]">
                       {project.title}
-                    </h3>
+                    </span>
                     <span className="inline-flex items-center gap-2 font-body text-[14px] font-semibold text-iroko">
                       {project.city.charAt(0).toUpperCase() + project.city.slice(1)}
                       <ArrowRight />
                     </span>
-                  </div>
-                  <p className="text-[15px] leading-[1.55] text-ash">{project.summary[locale]}</p>
-                  <p className="font-body text-[12px] uppercase tracking-[0.14em] text-dim">
+                  </span>
+                  <span className="block text-[15px] leading-[1.55] text-ash">
+                    {project.summary[locale]}
+                  </span>
+                  <span className="font-body text-[12px] uppercase tracking-[0.14em] text-dim">
                     {t(`projects.types.${project.type}`)}
                     {project.sector ? ` · ${t(`projects.sectors.${project.sector}`)}` : ''} ·{' '}
                     {project.region[locale]}
-                  </p>
+                  </span>
+                  </span>
                 </Link>
               </li>
             ))}

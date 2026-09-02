@@ -16,8 +16,8 @@ export const services: Service[] = [
       fr: 'Construction commerciale',
     },
     summary: {
-      en: 'Office buildings, bank branches and retail structures, built to full specification from foundation to handover.',
-      fr: 'Immeubles de bureaux, agences bancaires et commerces, construits selon le cahier des charges, des fondations à la livraison.',
+      en: 'Office buildings, bank and financial-institution branches, and retail structures, built to full specification from foundation to handover.',
+      fr: 'Immeubles de bureaux, agences bancaires et d’établissements financiers, et commerces, construits selon le cahier des charges, des fondations à la livraison.',
     },
     includes: {
       en: [

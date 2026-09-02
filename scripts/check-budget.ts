@@ -21,7 +21,21 @@ const OUT = resolve(process.cwd(), 'out');
 
 const JS_LIMIT = 150 * 1024;
 const PAGE_LIMIT = 500 * 1024;
-const IMAGE_LIMIT = 120 * 1024;
+
+/**
+ * Two separate limits, because they answer different questions.
+ *
+ * HERO_LIMIT is what decides LCP: the largest image a page fetches eagerly,
+ * before the visitor has scrolled. That is the one that must stay small on a
+ * metered connection.
+ *
+ * IMAGE_CEILING is a backstop on every derivative the pipeline emits. It sits
+ * higher on purpose — a photograph of rebar or a crowded site needs the bits,
+ * and lazy-loading means it is only ever fetched by someone who scrolled to
+ * it. `build-images.ts` steps quality down to stay under the same number.
+ */
+const HERO_LIMIT = 120 * 1024;
+const IMAGE_CEILING = 165 * 1024;
 
 /** Pages held to the full budget. The homepage is the one that must hold. */
 const TRACKED = ['en/index.html', 'fr/index.html'];
@@ -54,6 +68,7 @@ interface Report {
   jsBytes: number;
   legacyJsBytes: number;
   cssBytes: number;
+  heroBytes: number;
   totalBytes: number;
 }
 
@@ -115,16 +130,42 @@ function measure(relative: string): Report | null {
     if (file) fontBytes += statSync(file).size; // woff2 is already compressed
   }
 
-  // The hero: the largest image the page eagerly requests.
+  // The hero: the largest image this page fetches BEFORE any scrolling.
+  //
+  // Laziness is a property of the <img>, not of its <source> siblings — a
+  // <source> carries no `loading` attribute at all. So each <picture> is
+  // judged by the <img> inside it, and the whole block is skipped when that
+  // img is lazy. Counting sources independently makes every lazy image on the
+  // page look like a candidate for LCP, which is how this check previously
+  // reported the largest image on the page rather than the hero.
   let heroBytes = 0;
-  for (const match of html.matchAll(/(?:src|srcSet|srcset)="([^"]+)"/g)) {
-    for (const candidate of (match[1] ?? '').split(',')) {
-      const url = candidate.trim().split(' ')[0];
-      const file = url ? assetPath(url) : null;
-      if (file && /\.(avif|webp|jpe?g|png)$/i.test(file)) {
-        heroBytes = Math.max(heroBytes, statSync(file).size);
+
+  const largestIn = (markup: string) => {
+    let largest = 0;
+    for (const attr of markup.matchAll(/(?:src|srcSet|srcset)="([^"]+)"/g)) {
+      for (const candidate of (attr[1] ?? '').split(',')) {
+        const url = candidate.trim().split(' ')[0];
+        const file = url ? assetPath(url) : null;
+        if (file && /\.(avif|webp|jpe?g|png)$/i.test(file)) {
+          largest = Math.max(largest, statSync(file).size);
+        }
       }
     }
+    return largest;
+  };
+
+  const pictures = [...html.matchAll(/<picture[\s\S]*?<\/picture>/g)].map((m) => m[0]);
+  for (const picture of pictures) {
+    const img = picture.match(/<img[^>]*>/)?.[0] ?? '';
+    if (/loading="lazy"/.test(img)) continue;
+    heroBytes = Math.max(heroBytes, largestIn(picture));
+  }
+
+  // Bare <img> elements outside any <picture> (video posters, for instance).
+  const withoutPictures = html.replace(/<picture[\s\S]*?<\/picture>/g, '');
+  for (const tag of withoutPictures.matchAll(/<img[^>]*>/g)) {
+    if (/loading="lazy"/.test(tag[0])) continue;
+    heroBytes = Math.max(heroBytes, largestIn(tag[0]));
   }
 
   return {
@@ -133,6 +174,7 @@ function measure(relative: string): Report | null {
     jsBytes,
     legacyJsBytes,
     cssBytes,
+    heroBytes,
     totalBytes: htmlBytes + jsBytes + cssBytes + fontBytes + heroBytes,
   };
 }
@@ -169,21 +211,27 @@ function main() {
       console.error(`  FAIL  first visit ${kb(report.totalBytes)} exceeds ${kb(PAGE_LIMIT)}`);
       failed = true;
     }
+    if (report.heroBytes > HERO_LIMIT) {
+      console.error(`  FAIL  hero image ${kb(report.heroBytes)} exceeds ${kb(HERO_LIMIT)}`);
+      failed = true;
+    } else {
+      console.log(`  hero image ${kb(report.heroBytes)} (limit ${kb(HERO_LIMIT)})`);
+    }
   }
 
-  // No single image anywhere may blow the hero budget.
+  // Backstop: no derivative anywhere may exceed the ceiling.
   const oversized = walk(OUT)
     .filter((file) => /\.(avif|webp|jpe?g|png)$/i.test(file))
-    .filter((file) => statSync(file).size > IMAGE_LIMIT);
+    .filter((file) => statSync(file).size > IMAGE_CEILING);
 
   if (oversized.length > 0) {
-    console.error(`  FAIL  ${oversized.length} image(s) over ${kb(IMAGE_LIMIT)}:`);
+    console.error(`  FAIL  ${oversized.length} image(s) over ${kb(IMAGE_CEILING)}:`);
     for (const file of oversized.slice(0, 10)) {
       console.error(`        ${file.replace(OUT, '')} — ${kb(statSync(file).size)}`);
     }
     failed = true;
   } else {
-    console.log(`images: none over ${kb(IMAGE_LIMIT)}`);
+    console.log(`images: none over the ${kb(IMAGE_CEILING)} ceiling`);
   }
 
   process.exit(failed ? 1 : 0);

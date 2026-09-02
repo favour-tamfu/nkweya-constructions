@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { assertLocale } from '@/lib/locale';
-import { buildMetadata } from '@/lib/seo';
+import { breadcrumbSchema, buildMetadata, localePath } from '@/lib/seo';
+import { JsonLd } from '@/components/seo/JsonLd';
 import { Section } from '@/components/ui/Section';
 import { PageHeader } from '@/components/sections/PageHeader';
 
@@ -33,6 +34,13 @@ export default async function PrivacyPage({
 
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: t('nav.home'), path: localePath('/', locale) },
+          { name: t('footer.privacy'), path: localePath('/legal/privacy', locale) },
+        ])}
+      />
+
       <PageHeader
         title={t('legal.privacyTitle')}
         crumbs={[{ label: t('footer.privacy') }]}

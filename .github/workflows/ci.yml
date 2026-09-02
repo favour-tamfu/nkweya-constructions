@@ -41,6 +41,12 @@ jobs:
       - name: Internal links resolve
         run: npm run check:links
 
+      - name: SEO tags
+        run: npm run check:seo
+
+      - name: Dead links and controls
+        run: npm run check:interactive
+
       - name: Accessibility
         run: npm run check:a11y
 

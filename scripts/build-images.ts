@@ -24,16 +24,43 @@ const MEDIA_OUT = resolve(ROOT, 'public', 'media');
 const OG_OUT = resolve(ROOT, 'public', 'og');
 const MANIFEST = resolve(ROOT, 'src', 'generated', 'image-manifest.json');
 
-const WIDTHS = [400, 800, 1200, 1600];
+const WIDTHS = [400, 640, 800, 1200, 1600];
 /**
- * Aligned with the hero budget in `check-budget.ts` (§13.1). Derivatives are
- * re-encoded at progressively lower quality until they fit, so a dense
- * photograph — rebar mesh, a crowded site — cannot silently blow the budget.
+ * Quality first, with a ceiling.
+ *
+ * A single flat quality serves renders and photographs badly — a clean
+ * architectural visualisation compresses to nothing, while rebar mesh or a
+ * crowded site is all high-frequency detail and goes soft the moment quality
+ * drops. So each derivative is encoded at a genuinely good quality and only
+ * stepped down if it exceeds the ceiling, and the floors are set high enough
+ * that nothing is ever crushed to meet the cap.
+ *
+ * The ceiling is per file, and the widths a phone actually requests (400/800)
+ * land far below it. `check-budget.ts` separately holds the homepage hero to a
+ * tighter limit, which is the one that decides LCP.
  */
-const MAX_BYTES = 118 * 1024;
-const MIN_QUALITY = { avif: 32, webp: 48, jpeg: 52 } as const;
+const MAX_BYTES = 165 * 1024;
+const MIN_QUALITY: Record<Format, number> = { avif: 34, webp: 52, jpeg: 56 };
 
-const QUALITY = { avif: 52, webp: 74, jpeg: 76 } as const;
+type Format = 'avif' | 'webp' | 'jpeg';
+
+const QUALITY: Record<Format, number> = { avif: 62, webp: 82, jpeg: 84 };
+
+/**
+ * Per-image overrides, for the few where the default is the wrong trade.
+ *
+ * The homepage hero is rendered at 45% opacity beneath a near-opaque gradient,
+ * so detail in it is invisible by construction — and it is the LCP element, so
+ * its weight is the one a visitor waits on. It gets a leaner profile and a
+ * tighter cap than everything else. Every other image is shown at full
+ * strength and keeps the default.
+ */
+const OVERRIDES: Record<string, { quality: Partial<Record<Format, number>>; maxBytes: number }> = {
+  'residential-duplex-block-front-elevation': {
+    quality: { avif: 42, webp: 60, jpeg: 62 },
+    maxBytes: 110 * 1024,
+  },
+};
 
 export interface ManifestEntry {
   width: number;
@@ -53,15 +80,13 @@ function ladder(intrinsic: number) {
   return [...new Set(rungs)].sort((a, b) => a - b);
 }
 
-function record(file: string) {
+function record(file: string, ceiling: number = MAX_BYTES) {
   const bytes = statSync(file).size;
-  if (bytes > MAX_BYTES) {
+  if (bytes > ceiling) {
     oversize.push(`${file.replace(ROOT, '')} — ${(bytes / 1024).toFixed(0)}KB`);
   }
   return bytes;
 }
-
-type Format = 'avif' | 'webp' | 'jpeg';
 
 /**
  * Encode, and if the result is over budget step the quality down and try
@@ -74,17 +99,24 @@ async function encodeWithinBudget(
   width: number,
   format: Format,
   dest: string,
+  slug: string,
 ): Promise<number> {
-  let quality: number = QUALITY[format];
+  const override = OVERRIDES[slug];
+  let quality: number = override?.quality[format] ?? QUALITY[format];
+  const ceiling = override?.maxBytes ?? MAX_BYTES;
 
   for (;;) {
-    const pipeline = sharp(input).resize({ width, withoutEnlargement: true });
+    const pipeline = sharp(input)
+      .resize({ width, withoutEnlargement: true, kernel: 'lanczos3' })
+      // Downscaling softens texture; a light unsharp pass restores the edges
+      // that make rebar, blockwork and roof tile read at small sizes.
+      .sharpen({ sigma: 0.6, m1: 0.5, m2: 0.7 });
     if (format === 'avif') await pipeline.avif({ quality, effort: 6 }).toFile(dest);
     else if (format === 'webp') await pipeline.webp({ quality, effort: 5 }).toFile(dest);
     else await pipeline.jpeg({ quality, mozjpeg: true, progressive: true }).toFile(dest);
 
     const bytes = statSync(dest).size;
-    if (bytes <= MAX_BYTES || quality <= MIN_QUALITY[format]) return record(dest);
+    if (bytes <= ceiling || quality <= MIN_QUALITY[format]) return record(dest, ceiling);
     quality = Math.max(MIN_QUALITY[format], quality - 6);
   }
 }
@@ -101,13 +133,13 @@ async function buildImage(name: string) {
   const srcset = { avif: [] as string[], webp: [] as string[], jpeg: [] as string[] };
 
   for (const w of rungs) {
-    await encodeWithinBudget(input, w, 'avif', join(MEDIA_OUT, `${slug}-${w}.avif`));
+    await encodeWithinBudget(input, w, 'avif', join(MEDIA_OUT, `${slug}-${w}.avif`), slug);
     srcset.avif.push(`/media/${slug}-${w}.avif ${w}w`);
 
-    await encodeWithinBudget(input, w, 'webp', join(MEDIA_OUT, `${slug}-${w}.webp`));
+    await encodeWithinBudget(input, w, 'webp', join(MEDIA_OUT, `${slug}-${w}.webp`), slug);
     srcset.webp.push(`/media/${slug}-${w}.webp ${w}w`);
 
-    await encodeWithinBudget(input, w, 'jpeg', join(MEDIA_OUT, `${slug}-${w}.jpg`));
+    await encodeWithinBudget(input, w, 'jpeg', join(MEDIA_OUT, `${slug}-${w}.jpg`), slug);
     srcset.jpeg.push(`/media/${slug}-${w}.jpg ${w}w`);
   }
 
@@ -143,12 +175,18 @@ async function buildOgCard(locale: 'en' | 'fr', source: string) {
 
   const overlay = Buffer.from(
     `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
-       <rect width="1200" height="630" fill="#2B353A" fill-opacity="0.72"/>
+       <rect width="1200" height="630" fill="#2B353A" fill-opacity="0.74"/>
        <rect x="0" y="0" width="1200" height="6" fill="#7A3E0C"/>
-       <text x="72" y="300" font-family="Georgia, serif" font-size="66" font-weight="700"
+       <g transform="translate(72, 150) scale(2.6)">
+         <path d="M6 6h20" stroke="#F2EDE7" stroke-width="3" stroke-linecap="square" fill="none"/>
+         <path d="M7.5 6v18M24.5 6v18" stroke="#F2EDE7" stroke-width="3" stroke-linecap="square" fill="none"/>
+         <path d="M7.5 7.5 24.5 24" stroke="#C39A6C" stroke-width="3" stroke-linecap="square" fill="none"/>
+         <path d="M3 27.5h26" stroke="#F2EDE7" stroke-width="4" stroke-linecap="square" fill="none"/>
+       </g>
+       <text x="72" y="360" font-family="Georgia, serif" font-size="64" font-weight="700"
              fill="#FFFFFF">Nkweya &amp; Sons</text>
-       <text x="72" y="372" font-family="Georgia, serif" font-size="40" fill="#C39A6C">${tagline}</text>
-       <text x="72" y="470" font-family="Helvetica, Arial, sans-serif" font-size="24"
+       <text x="72" y="428" font-family="Georgia, serif" font-size="38" fill="#C39A6C">${tagline}</text>
+       <text x="72" y="516" font-family="Helvetica, Arial, sans-serif" font-size="23"
              letter-spacing="3" fill="#A9B3B7">${subline}</text>
      </svg>`,
   );
@@ -163,25 +201,34 @@ async function buildOgCard(locale: 'en' | 'fr', source: string) {
   console.log(`  og-${locale}.jpg  1200x630`);
 }
 
-/** App icons, drawn from the same mark the header uses. */
+/** App icons. Slate ground, limewash frame, russet brace — as on the site. */
 async function buildIcons() {
-  const mark = Buffer.from(
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="512" height="512">
-       <rect width="36" height="36" fill="#2B353A"/>
-       <path d="M6 28V12l12-6 12 6v16" stroke="#F2EDE7" stroke-width="1.6" fill="none"/>
-       <path d="M6 28h24" stroke="#C39A6C" stroke-width="1.6"/>
-       <path d="M18 6v22" stroke="#F2EDE7" stroke-width="1.2"/>
-     </svg>`,
-  );
+  const icon = (size: number) =>
+    Buffer.from(
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="${size}" height="${size}">
+         <rect width="32" height="32" fill="#2B353A"/>
+         <path d="M6 6h20" stroke="#F2EDE7" stroke-width="3" stroke-linecap="square" fill="none"/>
+         <path d="M7.5 6v18M24.5 6v18" stroke="#F2EDE7" stroke-width="3" stroke-linecap="square" fill="none"/>
+         <path d="M7.5 7.5 24.5 24" stroke="#C39A6C" stroke-width="3" stroke-linecap="square" fill="none"/>
+         <path d="M3 27.5h26" stroke="#F2EDE7" stroke-width="4" stroke-linecap="square" fill="none"/>
+       </svg>`,
+    );
+
   for (const size of [192, 512]) {
     const out = resolve(ROOT, 'public', `icon-${size}.png`);
-    await sharp(mark).resize(size, size).png().toFile(out);
+    await sharp(icon(size)).resize(size, size).png().toFile(out);
     record(out);
   }
   const apple = resolve(ROOT, 'public', 'apple-touch-icon.png');
-  await sharp(mark).resize(180, 180).png().toFile(apple);
+  await sharp(icon(180)).resize(180, 180).png().toFile(apple);
   record(apple);
-  console.log('  icons  192/512/apple-touch');
+
+  // A crisp favicon.ico beats a downscaled PNG at 16px.
+  const favicon = resolve(ROOT, 'public', 'favicon.ico');
+  await sharp(icon(64)).resize(64, 64).png().toFile(favicon.replace('.ico', '-64.png'));
+  record(favicon.replace('.ico', '-64.png'));
+
+  console.log('  icons  192/512/apple-touch/64');
 }
 
 async function main() {

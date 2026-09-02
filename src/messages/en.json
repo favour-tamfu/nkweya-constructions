@@ -3,16 +3,16 @@
     "siteName": "Nkweya & Sons Constructions",
     "tagline": "A name you can build on.",
     "heroSubline": "Buildings raised across five cities, one standard of work.",
-    "homeTitle": "Nkweya & Sons Constructions — civil engineering contractor, Cameroon",
-    "homeDescription": "Civil engineering contractor working across Buea, Limbe, Douala, Yaoundé and Bamenda. Commercial and residential construction, structural supervision, renovation, geotechnical studies and boreholes.",
+    "homeTitle": "Nkweya & Sons Constructions — civil engineering, Cameroon",
+    "homeDescription": "Civil engineering contractor across Buea, Limbe, Douala, Yaoundé and Bamenda. Construction, structural supervision, renovation and geotechnical work.",
     "pages": {
       "services": {
         "title": "Construction services in Cameroon — Nkweya & Sons",
-        "description": "Commercial and residential construction, structural supervision, renovation and repair, geotechnical studies and boreholes. Each service states its scope and its exclusions."
+        "description": "Commercial and residential construction, structural supervision, renovation and repair, geotechnical studies and boreholes — each with its scope and exclusions."
       },
       "projects": {
         "title": "Our work — Nkweya & Sons Constructions",
-        "description": "First Trust Bank and the CCC Building in Limbe, and footage from live sites: slab pours, reinforcement inspection and concrete testing."
+        "description": "The CCC Building in Limbe, a branch for First Trust Savings and Loan, and footage from live sites: slab pours, reinforcement inspection and concrete testing."
       },
       "designs": {
         "title": "Design visualisations — Nkweya & Sons Constructions",
@@ -24,7 +24,7 @@
       },
       "about": {
         "title": "About Nkweya & Sons Constructions — Nkweya Francis, engineer",
-        "description": "A family firm led by Nkweya Francis: a research Master's in Civil Engineering, DIPET II certification and over 25 years in the trade, across five Cameroonian cities."
+        "description": "A family firm led by Nkweya Francis: a research Master's in Civil Engineering, DIPET II certification and over 25 years across five Cameroonian cities."
       },
       "contact": {
         "title": "Contact Nkweya & Sons Constructions — Cameroon",
@@ -36,11 +36,11 @@
       },
       "privacy": {
         "title": "Privacy — Nkweya & Sons Constructions",
-        "description": "What this website collects, what it does not, and who to contact about it."
+        "description": "This site sets no cookies and runs no advertising trackers. What it collects, what it does not, and who to contact about it."
       },
       "terms": {
         "title": "Terms — Nkweya & Sons Constructions",
-        "description": "The terms on which this website is published."
+        "description": "How this website is published, what a quotation binds, and how design visualisations differ from photographs of completed buildings."
       }
     }
   },
@@ -93,7 +93,7 @@
     "audienceEyebrow": "Who we build for",
     "audienceCommercial": "Commercial & development",
     "audienceResidential": "Building a home",
-    "audienceCommercialBody": "Office buildings, bank branches and retail structures, delivered to specification with engineering supervision throughout. Our completed work includes a bank branch in Limbe, built to a client's own technical review.",
+    "audienceCommercialBody": "Office buildings, financial-institution branches and retail structures, delivered to specification with engineering supervision throughout. Our completed work includes the five-storey CCC Building in Limbe.",
     "audienceResidentialBody": "A family firm with its name on the building. One engineer accountable from the first site visit to the day the keys change hands, and a written report at every stage in between.",
     "servicesEyebrow": "What we do",
     "servicesTitle": "Five services, from the ground up",
@@ -105,8 +105,8 @@
     "workTitle": "Work in progress",
     "workBody": "Footage from live sites: a slab being poured, a structure in elevation, reinforcement inspected before concrete covers it, and a concrete cube tested to confirm the mix reached its grade.",
     "projectsEyebrow": "Completed buildings",
-    "projectsTitle": "First Trust Bank and the CCC Building",
-    "projectsBody": "Both in Limbe, on the coast, where salt exposure governs reinforcement cover and the specification of every external fixing.",
+    "projectsTitle": "The CCC Building, Limbe",
+    "projectsBody": "Five storeys on the coast, carrying the Limbe branch of Community Credit Company at street level. Salt exposure there governs reinforcement cover and the specification of every external fixing.",
     "engineerEyebrow": "The engineer",
     "engineerTitle": "Nkweya Francis",
     "engineerBody": "A research Master's in Civil Engineering, DIPET II certification, and more than twenty-five years of practice across five cities in four regions of Cameroon — anglophone and francophone.",
@@ -145,7 +145,7 @@
     "filterType": "Type",
     "filterCity": "City",
     "noResults": "No buildings match that filter.",
-    "photographyNote": "Photography of both buildings is being arranged. Until it is complete, these pages set out the work rather than illustrate it.",
+    "photographyNote": "Photography of the First Trust branch is being arranged. Until it is, that page sets out the work rather than illustrating it.",
     "types": {
       "commercial": "Commercial",
       "residential": "Residential",

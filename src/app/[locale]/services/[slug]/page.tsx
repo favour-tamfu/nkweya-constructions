@@ -5,7 +5,6 @@ import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 import { services, serviceBySlug } from '@/content/services';
 import { projects } from '@/content/projects';
-import { cities } from '@/content/cities';
 import { siteWork } from '@/content/site-work';
 import { company } from '@/content/company';
 import { assertLocale } from '@/lib/locale';
@@ -38,12 +37,11 @@ export async function generateMetadata({
   const service = serviceBySlug(slug);
   if (!service) return {};
 
-  const cityList = cities.map((city) => city.name).join(', ');
   return buildMetadata({
     locale,
     href: { pathname: '/services/[slug]', params: { slug } },
     title: `${service.name[locale]} — Nkweya & Sons Constructions`,
-    description: `${service.summary[locale]} ${cityList}.`,
+    description: service.summary[locale],
   });
 }
 
@@ -80,7 +78,6 @@ export default async function ServiceDetailPage({
           serviceSchema({
             name: service.name[locale],
             description: service.summary[locale],
-            locale,
             path,
           }),
           breadcrumbSchema([

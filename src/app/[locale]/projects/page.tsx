@@ -11,6 +11,7 @@ import { ArrowRight, buttonClassName } from '@/components/ui/Button';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
 import { SiteVideo } from '@/components/media/SiteVideo';
+import { ResponsiveImage } from '@/components/media/ResponsiveImage';
 import { PageHeader } from '@/components/sections/PageHeader';
 import { FinalCta } from '@/components/sections/FinalCta';
 
@@ -57,31 +58,56 @@ export default async function ProjectsPage({
       <Section tone="limewash" labelledBy="completed-heading">
         <SectionHeading id="completed-heading" title={t('projects.completedTitle')} />
 
-        <ul className="mt-8 grid gap-px bg-hairline md:grid-cols-2">
+        {/*
+          One row per building rather than a two-up grid. A grid forces equal
+          heights, so a building with a photograph and one without leave a
+          large void beside each other; a row simply drops the image column
+          when there is nothing to put in it.
+        */}
+        <ul className="mt-8 grid gap-px bg-hairline">
           {projects.map((project, index) => (
             <Reveal as="li" key={project.slug} delay={index * 60} className="bg-card">
               <Link
                 href={{ pathname: '/projects/[slug]', params: { slug: project.slug } }}
-                className="group flex h-full flex-col p-6 no-underline transition-colors hover:bg-stucco md:p-8"
+                className="group grid gap-0 no-underline transition-colors hover:bg-stucco md:grid-cols-12"
               >
-                <p className="font-body text-[11px] font-semibold uppercase tracking-[0.18em] text-russet">
-                  {t(`projects.types.${project.type}`)}
-                  {project.sector ? ` · ${t(`projects.sectors.${project.sector}`)}` : ''}
-                </p>
-                <h3 className="mt-3 font-display text-[24px] font-bold leading-snug text-slate md:text-[28px]">
-                  {project.title}
-                </h3>
-                <p className="mt-2 font-body text-[14px] text-mortar">
-                  {project.city.charAt(0).toUpperCase() + project.city.slice(1)},{' '}
-                  {project.region[locale]}
-                </p>
-                <p className="mt-4 flex-1 text-[15px] leading-[1.6] text-mortar">
-                  {project.summary[locale]}
-                </p>
-                <span className="mt-6 inline-flex items-center gap-2 font-body text-[14px] font-semibold text-russet">
-                  {t('cta.readMore')}
-                  <ArrowRight />
-                </span>
+                {project.images[0] ? (
+                  <div className="md:col-span-5">
+                    <ResponsiveImage
+                      slug={project.images[0].src}
+                      alt={project.images[0].alt[locale]}
+                      sizes="(min-width: 768px) 40vw, 92vw"
+                      aspect="4 / 3"
+                    />
+                  </div>
+                ) : null}
+
+                <div
+                  className={
+                    project.images[0]
+                      ? 'flex flex-col justify-center p-6 md:col-span-7 md:p-8'
+                      : 'flex flex-col justify-center p-6 md:col-span-12 md:p-8'
+                  }
+                >
+                  <p className="font-body text-[11px] font-semibold uppercase tracking-[0.18em] text-russet">
+                    {t(`projects.types.${project.type}`)}
+                    {project.sector ? ` · ${t(`projects.sectors.${project.sector}`)}` : ''}
+                  </p>
+                  <h3 className="mt-3 font-display text-[24px] font-bold leading-snug text-slate md:text-[28px]">
+                    {project.title}
+                  </h3>
+                  <p className="mt-2 font-body text-[14px] text-mortar">
+                    {project.city.charAt(0).toUpperCase() + project.city.slice(1)},{' '}
+                    {project.region[locale]}
+                  </p>
+                  <p className="prose-measure mt-4 text-[15px] leading-[1.6] text-mortar">
+                    {project.summary[locale]}
+                  </p>
+                  <span className="mt-6 inline-flex items-center gap-2 font-body text-[14px] font-semibold text-russet">
+                    {t('cta.readMore')}
+                    <ArrowRight />
+                  </span>
+                </div>
               </Link>
             </Reveal>
           ))}

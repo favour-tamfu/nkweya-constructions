@@ -8,7 +8,7 @@ import { cityBySlug } from '@/content/cities';
 import { company } from '@/content/company';
 import { assertLocale } from '@/lib/locale';
 import { whatsappHref } from '@/lib/whatsapp';
-import { breadcrumbSchema, buildMetadata, localePath } from '@/lib/seo';
+import { breadcrumbSchema, buildMetadata, localePath, projectSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { ArrowRight, buttonClassName } from '@/components/ui/Button';
 import { Section, SectionHeading } from '@/components/ui/Section';
@@ -39,6 +39,8 @@ export async function generateMetadata({
     href: { pathname: '/projects/[slug]', params: { slug } },
     title: `${project.title}, ${cityName} — Nkweya & Sons Constructions`,
     description: project.summary[locale],
+    // A photographed building shares as itself, not as the generic card.
+    imageSlug: project.images[0]?.src,
   });
 }
 
@@ -57,6 +59,7 @@ export default async function ProjectDetailPage({
   const city = cityBySlug(project.city);
   const cityName = project.city.charAt(0).toUpperCase() + project.city.slice(1);
   const others = projects.filter((item) => item.slug !== project.slug);
+  const projectPath = localePath({ pathname: '/projects/[slug]', params: { slug } }, locale);
 
   const wa = whatsappHref(
     company.whatsappPrimary,
@@ -66,14 +69,21 @@ export default async function ProjectDetailPage({
   return (
     <main>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: t('nav.home'), path: localePath('/', locale) },
-          { name: t('nav.projects'), path: localePath('/projects', locale) },
-          {
+        data={[
+          breadcrumbSchema([
+            { name: t('nav.home'), path: localePath('/', locale) },
+            { name: t('nav.projects'), path: localePath('/projects', locale) },
+            { name: project.title, path: projectPath },
+          ]),
+          projectSchema({
             name: project.title,
-            path: localePath({ pathname: '/projects/[slug]', params: { slug } }, locale),
-          },
-        ])}
+            description: project.summary[locale],
+            path: projectPath,
+            cityName,
+            region: project.region[locale],
+            imageSlug: project.images[0]?.src,
+          }),
+        ]}
       />
 
       <PageHeader
