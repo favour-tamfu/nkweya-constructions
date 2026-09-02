@@ -48,6 +48,7 @@ next-env.d.ts
 /public/media/
 /public/og/
 /public/icon-*.png
+/public/favicon-*.png
 /public/apple-touch-icon.png
 
 # NOT ignored, and deliberately so:
